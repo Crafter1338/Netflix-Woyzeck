@@ -560,8 +560,8 @@ body::-webkit-scrollbar {
 
 
 .video-overlay video {
-	max-width: 90%;
-	max-height: 80%;
+	width: 90%;
+	max-height: 90%;
 	border-radius: 8px;
 	background: black;
 }
