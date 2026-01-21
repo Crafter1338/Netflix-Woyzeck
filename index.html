@@ -5,6 +5,15 @@
 </head>
 
 <body>
+	<div class="video-overlay" id="video-overlay">
+		<button class="video-close" id="close-video">✕</button>
+
+		<video id="video-player" controls>
+			<source src="video.mp4" type="video/mp4" />
+			Dein Browser unterstützt kein Video.
+		</video>
+	</div>
+
 	<header class="navbar">
 		<ul class="navigation-tab-list">
 			<li class="navigation-tab"><img src="Netflix.svg" style="height: 25px" /></li>
@@ -36,6 +45,7 @@
 						d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
 				</svg>
 			</li>
+			<li class="user-tab">Nico</li>
 			<li class="user-tab">
 				<img style="border-radius: 5px" class="profile-icon"
 					src="https://occ-0-2773-1490.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e" />
@@ -54,7 +64,7 @@
 			</p>
 
 			<div class="hero-actions">
-				<button class="btn play"><svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="20px"
+				<button class="btn play play-video"><svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="20px"
 						height="20px" viewBox="0 0 32 32" version="1.1">
 						<title>play</title>
 						<path
@@ -190,7 +200,7 @@
 					<div class="episode">
 						<span class="episode-index">2</span>
 
-						<img class="episode-thumb" src="Episodes/Episode2V2.jpeg" alt="Episode 2" />
+						<img class="episode-thumb" src="Episodes/Episode2.jpeg" alt="Episode 2" />
 
 						<div class="episode-info">
 							<div class="episode-top">
@@ -233,7 +243,7 @@
 					<div class="episode">
 						<span class="episode-index">4</span>
 
-						<img class="episode-thumb" src="Episodes/Episode4V2.jpeg" alt="Episode 4" />
+						<img class="episode-thumb" src="Episodes/Episode4.jpeg" alt="Episode 4" />
 
 						<div class="episode-info">
 							<div class="episode-top">
@@ -253,7 +263,7 @@
 					<div class="episode">
 						<span class="episode-index">5</span>
 
-						<img class="episode-thumb" src="Episodes/Episode4V2.jpeg" alt="Episode 4" />
+						<img class="episode-thumb" src="Episodes/Episode5.jpeg" alt="Episode 4" />
 
 						<div class="episode-info">
 							<div class="episode-top">
@@ -303,9 +313,9 @@
 						</div>
 
 						<div class="cast-member">
-							<img class="cast-image" src="Cast/" />
+							<img class="cast-image" src="Cast/Matthias.jpeg" />
 							<div class="cast-info">
-								<span class="cast-name">NOCH NIEMAND</span>
+								<span class="cast-name">Matthias Schweighöfer</span>
 								<span class="cast-role">Tambourmajor</span>
 							</div>
 						</div>
@@ -374,6 +384,45 @@
 
 		function closeModal() {
 			modal.classList.remove("active");
+			document.body.style.overflow = "";
+		}
+	</script>
+
+	<script>
+		const playButtons = document.querySelectorAll(".play-video");
+		const videoOverlay = document.getElementById("video-overlay");
+		const videoPlayer = document.getElementById("video-player");
+		const closeVideo = document.getElementById("close-video");
+
+		// Öffnet NUR den Player (kein Autoplay)
+		playButtons.forEach(btn => {
+			btn.addEventListener("click", () => {
+				videoOverlay.classList.add("active");
+				videoPlayer.currentTime = 0; // optional
+				document.body.style.overflow = "hidden";
+			});
+		});
+
+		// Close-Button
+		closeVideo.addEventListener("click", closePlayer);
+
+		// Klick auf dunklen Hintergrund schließt
+		videoOverlay.addEventListener("click", closePlayer);
+
+		// Klick auf Video selbst soll NICHT schließen
+		videoPlayer.addEventListener("click", e => e.stopPropagation());
+
+		// ESC schließt Player
+		document.addEventListener("keydown", e => {
+			if (e.key === "Escape" && videoOverlay.classList.contains("active")) {
+				closePlayer();
+			}
+		});
+
+		function closePlayer() {
+			videoOverlay.classList.remove("active");
+			videoPlayer.pause();
+			videoPlayer.currentTime = 0;
 			document.body.style.overflow = "";
 		}
 	</script>
