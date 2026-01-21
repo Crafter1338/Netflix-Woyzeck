@@ -1,0 +1,536 @@
+:root {
+	--nf-bg: #141414;
+	--nf-panel: #181818;
+	--nf-text: #e5e5e5;
+	--nf-muted: #b3b3b3;
+	--nf-red: #e50914;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	user-select: none;
+}
+
+body {
+	background-color: #141414;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 68px;
+	z-index: 1000;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+	display: flex;
+	flex-direction: row;
+}
+
+.navigation-tab-list {
+	display: flex;
+	list-style: none;
+	gap: 20px;
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	padding: 25px 45px;
+}
+
+.navigation-tab {
+	color: #cccccc;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+	transition: color 0.2s ease-in-out;
+}
+
+.user-tab-list {
+	display: flex;
+	list-style: none;
+	gap: 20px;
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	padding: 25px 45px;
+	margin-left: auto;
+}
+
+.user-tab {
+	color: #cccccc;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+	transition: color 0.2s ease-in-out;
+}
+
+.hero {
+	position: relative;
+	height: 85vh;
+	background: linear-gradient(to top, #141414 0%, rgba(20, 20, 20, 0.3) 40%, rgba(20, 20, 20, 0.1) 60%),
+		url("HeroImage.jpg") center/cover no-repeat;
+	padding-top: 68px;
+}
+
+.hero-content {
+	position: absolute;
+	bottom: 20%;
+	left: 60px;
+	max-width: 40%;
+}
+
+.hero-title {
+	max-width: 420px;
+	margin-bottom: 20px;
+}
+
+.hero-description {
+	font-size: 18px;
+	line-height: 1.4;
+	color: #e5e5e5;
+	margin-bottom: 24px;
+}
+
+.hero-actions {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.btn {
+	border: none;
+	padding: 12px 24px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 4px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.btn.play {
+	background: white;
+	color: black;
+}
+
+.btn.info {
+	background: rgba(109, 109, 110, 0.7);
+	color: white;
+}
+
+.btn:hover {
+	opacity: 0.85;
+}
+
+.modal {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.75);
+	z-index: 1000;
+	overflow: auto; /* enable scrolling */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE 10+ */
+
+	display: flex;
+	justify-content: center; /* horizontal zentriert */
+	align-items: flex-start; /* NICHT center */
+	padding: 64px 0; /* Abstand oben & unten */
+}
+
+.modal::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Edge */
+}
+
+.modal {
+	display: flex; /* bleibt flex */
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+
+	transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal.active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+.modal-card {
+	width: 100%;
+	max-width: 868px;
+	background: var(--nf-panel);
+	border-radius: 8px;
+	overflow: hidden;
+	pointer-events: auto;
+}
+
+.modal-hero {
+	position: relative;
+	border-radius: 8px 8px 0 0;
+	overflow: hidden;
+}
+
+.modal-image-container {
+	position: relative;
+	height: 520px;
+}
+
+.modal-image-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.modal-image-container::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, rgba(24, 24, 24, 0) 0%, rgba(24, 24, 24, 0.6) 60%, rgba(24, 24, 24, 1) 100%);
+}
+
+.modal-title {
+	position: absolute;
+	left: 48px;
+	bottom: 155px;
+	z-index: 2;
+	max-width: 420px;
+}
+
+.modal-title img {
+	width: 80%;
+	height: auto;
+}
+
+.button-controls {
+	position: absolute;
+	bottom: 24px;
+	left: 24px;
+	display: flex;
+	gap: 12px;
+	z-index: 2;
+}
+
+.button-controls > div {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: rgba(42, 42, 42, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+
+.button-controls > div:hover {
+	background: rgba(255, 255, 255, 0.15);
+}
+
+.button-controls svg {
+	color: white;
+}
+
+.modal-information {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 32px;
+	padding: 32px;
+	color: var(--nf-text);
+}
+
+.basics {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: var(--nf-muted);
+	font-size: 14px;
+	margin-bottom: 16px;
+}
+
+.year {
+	color: #46d369; /* Netflix-like green */
+	font-weight: 500;
+}
+
+.progress {
+	position: absolute;
+	bottom: 96px; /* über den Buttons */
+	left: 32px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	z-index: 2;
+}
+
+.progress-bar {
+	position: relative;
+	display: block;
+	width: 180px;
+	height: 4px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.progress-completed {
+	display: block;
+	height: 100%;
+	background: var(--nf-red);
+	border-radius: 2px;
+	transition: width 0.3s ease;
+}
+
+.progress .summary {
+	font-size: 13px;
+	color: #fff;
+	opacity: 0.9;
+	white-space: nowrap;
+}
+
+.current-episode {
+	margin-top: 8px;
+}
+
+.episode-title {
+	font-weight: 500;
+	font-size: 22px;
+	display: block;
+	margin-bottom: 8px;
+}
+
+.episode-description {
+	color: var(--nf-muted);
+	line-height: 1.5;
+	font-size: 14px;
+	max-width: 90%;
+}
+
+.right {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	font-size: 14px;
+}
+
+.right .text {
+	color: var(--nf-muted);
+	line-height: 1.5;
+}
+
+.actor-name,
+.genre-name {
+	color: var(--nf-text);
+}
+
+@media (min-width: 841px) and (max-width: 1280px) {
+	.modal > .modal-hero,
+	.modal > .modal-information,
+	.modal > .modal-episodes {
+		max-width: 900px;
+	}
+
+	.modal-image-container {
+		height: 480px;
+	}
+
+	.modal-information {
+		grid-template-columns: 1.8fr 1fr;
+		gap: 28px;
+	}
+}
+
+.modal-episodes {
+	padding: 32px;
+	color: #fff;
+}
+
+.episodes-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.season-title {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+/*/.episodes-header::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: rgba(255, 255, 255, 0.2);
+}/*/
+
+.episode-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.episode {
+	display: grid;
+	grid-template-columns: 48px 160px 1fr;
+	gap: 16px;
+	padding: 16px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+	align-items: center;
+}
+
+.episode:last-child {
+	border-bottom: none;
+}
+
+.episode-thumb {
+	width: 160px;
+	height: 90px;
+	object-fit: cover;
+	border-radius: 4px;
+	flex-shrink: 0;
+}
+
+.episode-info {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.episode-top {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+}
+
+.episode-index {
+	font-size: 32px;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.35);
+	text-align: center;
+	user-select: none;
+}
+
+.episode-name {
+	font-weight: 600;
+}
+
+.episode-duration {
+	margin-left: auto;
+	opacity: 0.7;
+	font-size: 13px;
+}
+
+.episode-description {
+	font-size: 14px;
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.85);
+	max-width: 520px;
+}
+
+.fsk {
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	padding: 2px 6px;
+	font-size: 13px;
+	font-weight: 500;
+	border-radius: 3px;
+	color: rgba(255, 255, 255, 0.85);
+	line-height: 1;
+}
+
+.popular-row {
+	margin: 40px 48px;
+	color: #fff;
+	overflow: hidden;
+}
+
+.row-title {
+	font-size: 22px;
+	font-weight: 600;
+	margin-bottom: 16px;
+}
+
+.card-row {
+	display: flex;
+	gap: 12px;
+	overflow-x: auto;
+	padding-bottom: 8px;
+	scrollbar-width: thin; /* Firefox */
+	overflow: hidden;
+}
+
+.card-row::-webkit-scrollbar {
+	height: 6px;
+}
+
+.card-row::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 3px;
+}
+
+.card {
+	min-width: 368px;
+	height: 207px;
+	background-color: #333;
+	border-radius: 5px;
+	flex-shrink: 0;
+	transition: transform 0.2s;
+}
+
+.modal-cast {
+	margin-top: 40px;
+	border-top: 1px solid #333;
+	padding-top: 20px;
+}
+
+.cast-header h3 {
+	color: #fff;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.cast-list {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.cast-member {
+	display: flex;
+	background-color: #222;
+	border-radius: 8px;
+	overflow: hidden;
+	width: 250px;
+}
+
+.cast-image {
+	width: 100px;
+	height: 180px;
+	object-fit: cover;
+}
+
+.cast-info {
+	padding: 10px;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.cast-name {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.cast-role {
+	font-size: 14px;
+	color: #ccc;
+}

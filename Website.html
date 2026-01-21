@@ -1,0 +1,417 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+
+	<body>
+		<header class="navbar">
+			<ul class="navigation-tab-list">
+				<li class="navigation-tab"><img src="Netflix.svg" style="height: 25px" /></li>
+				<li class="navigation-tab" style="margin-left: 20px"><b>Startseite</b></li>
+				<li class="navigation-tab">Serien</li>
+				<li class="navigation-tab">Filme</li>
+				<li class="navigation-tab">Games</li>
+				<li class="navigation-tab">Neu und Beliebt</li>
+				<li class="navigation-tab">Meine Liste</li>
+				<li class="navigation-tab">Nach Sprache durchsuchen</li>
+			</ul>
+
+			<ul class="user-tab-list">
+				<li class="user-tab">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-search-icon lucide-search"
+					>
+						<path d="m21 21-4.34-4.34" />
+						<circle cx="11" cy="11" r="8" />
+					</svg>
+				</li>
+				<li class="user-tab">Kids</li>
+				<li class="user-tab">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-bell-icon lucide-bell"
+					>
+						<path d="M10.268 21a2 2 0 0 0 3.464 0" />
+						<path
+							d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"
+						/>
+					</svg>
+				</li>
+				<li class="user-tab">
+					<img
+						style="border-radius: 5px"
+						class="profile-icon"
+						src="https://occ-0-2773-1490.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXz4LMjJFidX8MxhZ6qro8PBTjmHbxlaLAbk45W1DXbKsAIOwyHQPiMAuUnF1G24CLi7InJHK4Ge4jkXul1xIW49Dr5S7fc.png?r=e6e"
+					/>
+				</li>
+			</ul>
+		</header>
+
+		<section class="hero">
+			<div class="hero-content">
+				<img class="hero-title" src="HeroTitle.svg" alt="Titel" />
+
+				<p class="hero-description">
+					Der arme Soldat Woyzeck lebt ein einfaches Leben. Er hat mit Machtspielchen, Geldproblemen und Ausnutzung zu kämpfen. Seine Berufung ist es für Marie und deren uneheliches Kind zu sorgen - ob sie das wohl erkennen kann? Denn er verliert immer mehr seine Vernunft und sie ihre Treue.
+				</p>
+
+				<div class="hero-actions">
+					<button class="btn play">▶ Abspielen</button>
+					<button class="btn info" id="open-modal">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="21.5"
+							height="21.5"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="lucide lucide-info-icon lucide-info"
+						>
+							<circle cx="12" cy="12" r="10" />
+							<path d="M12 16v-4" />
+							<path d="M12 8h.01" />
+						</svg>
+						Weitere Infos
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<div class="modal" id="info-modal">
+			<div class="modal-card">
+				<div class="modal-hero">
+					<div class="modal-image-container" style="opacity: 1">
+						<img src="ModalHero.jpg" />
+					</div>
+
+					<div class="modal-title">
+						<img src="ModalHeroTitle.svg" alt="Titel" />
+					</div>
+
+					<div class="progress">
+						<span class="progress-bar"
+							><span role="presentation" class="progress-completed" style="width: 20%"></span></span
+						><span class="summary">5 von 25 Min.</span>
+					</div>
+
+					<div class="button-controls" style="opacity: 1">
+						<button class="btn play">▶ Fortsetzen</button>
+						<div class="plus-icon" role="presentation">
+							<svg
+								viewBox="0 0 24 24"
+								width="24"
+								height="24"
+								data-icon="PlusMedium"
+								data-icon-id=":r5r:"
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								role="img"
+							>
+								<path
+									fill="currentColor"
+									fill-rule="evenodd"
+									d="M11 11V2h2v9h9v2h-9v9h-2v-9H2v-2z"
+									clip-rule="evenodd"
+								></path>
+							</svg>
+						</div>
+						<div class="thump-up" role="presentation">
+							<svg
+								viewBox="0 0 24 24"
+								width="24"
+								height="24"
+								data-icon="ThumbsUpMedium"
+								data-icon-id=":r5s:"
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								role="img"
+							>
+								<path
+									fill="currentColor"
+									fill-rule="evenodd"
+									d="M10.696 8.773A2 2 0 0 0 11 7.713V4h.838c.877 0 1.59.553 1.77 1.311C13.822 6.228 14 7.227 14 8a7 7 0 0 1-.246 1.75L13.432 11H17.5a1.5 1.5 0 0 1 1.476 1.77l-.08.445.28.354c.203.256.324.578.324.931s-.12.675-.324.93l-.28.355.08.445q.024.13.024.27c0 .49-.234.925-.6 1.2l-.4.3v.5a1.5 1.5 0 0 1-1.5 1.5h-3.877a9 9 0 0 1-2.846-.462l-1.493-.497A10.5 10.5 0 0 0 5 18.5v-4.747l2.036-.581a3 3 0 0 0 1.72-1.295zM10.5 2A1.5 1.5 0 0 0 9 3.5v4.213l-1.94 3.105a1 1 0 0 1-.574.432l-2.035.581A2 2 0 0 0 3 13.754v4.793c0 1.078.874 1.953 1.953 1.953.917 0 1.828.148 2.698.438l1.493.498a11 11 0 0 0 3.479.564H16.5a3.5 3.5 0 0 0 3.467-3.017 3.5 3.5 0 0 0 1.028-2.671c.32-.529.505-1.15.505-1.812s-.185-1.283-.505-1.812Q21 12.595 21 12.5A3.5 3.5 0 0 0 17.5 9h-1.566c.041-.325.066-.66.066-1 0-1.011-.221-2.194-.446-3.148C15.14 3.097 13.543 2 11.838 2z"
+									clip-rule="evenodd"
+								></path>
+							</svg>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-information">
+					<div class="left">
+						<div class="basics">
+							<span class="year">1936</span>
+							<span class="duration">1 Staffel</span>
+							<svg
+								viewBox="0 0 16 16"
+								width="16"
+								height="16"
+								data-icon="SubtitlesSmall"
+								data-icon-id=":r5v:"
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								role="img"
+							>
+								<path
+									fill="currentColor"
+									fill-rule="evenodd"
+									d="M0 1.75C0 1.34.34 1 .75 1h14.5c.41 0 .75.34.75.75v10.5c0 .41-.34.75-.75.75h-2.5v2a.75.75 0 0 1-1.11.66L6.8 13H.75a.75.75 0 0 1-.75-.75zm1.5.75v9h5.7l.16.1 3.89 2.13V11.5h3.25v-9zm4.5 4H3V5h3zm7 1h-3V9h3zM3 9V7.5h6V9zm10-4H7v1.5h6z"
+									clip-rule="evenodd"
+								></path>
+							</svg>
+						</div>
+						<span class="fsk">FSK 16</span>
+
+						<div class="current-episode" style="margin-top: 40px">
+							<span class="episode-title"><b>St. 1: Flg. 1</b> „Gehalt um Gehalt“</span>
+							<p class="episode-description">
+								Woyzeck jongliert sein Leben als Soldat und Vater, während er sich vom Hauptmann alles
+								gefallen lassen muss (Sz. 14, 5, 4).
+							</p>
+						</div>
+					</div>
+
+					<div class="right">
+						<div class="actors">
+							<span class="text">Von: <span class="actor-name">Nico, Paula, Nele</span></span>
+						</div>
+
+						<div class="actors">
+							<span class="text"
+								>Besetzung:
+								<span class="actor-name">Tom Schilling, Jytte-Merle Böhrnsen, Hans Sigl</span></span
+							>
+						</div>
+
+						<div class="genres">
+							<span class="text"
+								>Genres:
+								<span class="genre-name">Drama, Tragödie, Gesellschaftskritik, Emotional</span></span
+							>
+						</div>
+
+						<div class="type">
+							<span class="text"
+								>Diese Serie ist: <span class="genre-name">Atmosphärisch und Spannend</span></span
+							>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-episodes">
+					<div class="episodes-header">
+						<span class="season-title">Staffel 1:</span>
+						<span class="fsk">FSK 16</span>
+					</div>
+
+					<div class="episode-list">
+						<div class="episode">
+							<span class="episode-index">1</span>
+
+							<img class="episode-thumb" src="Episodes/Episode1.jpeg" alt="Episode 1" />
+
+							<div class="episode-info">
+								<div class="episode-top">
+									<span class="episode-name">Gehalt um Gehalt</span>
+									<span class="episode-duration">25 Min.</span>
+								</div>
+
+								<p class="episode-description">
+									Woyzeck jongliert sein Leben als Soldat und Vater, während er sich vom Hauptmann
+									alles gefallen lassen muss.
+								</p>
+
+								<span class="episode-description">Szenen: 14, 5, 4</span>
+							</div>
+						</div>
+
+						<div class="episode">
+							<span class="episode-index">2</span>
+
+							<img class="episode-thumb" src="Episodes/Episode2V2.jpeg" alt="Episode 2" />
+
+							<div class="episode-info">
+								<div class="episode-top">
+									<span class="episode-name">Kopfkino mal anders</span>
+									<span class="episode-duration">23 Min.</span>
+								</div>
+
+								<p class="episode-description">
+									Woyzeck streitet sich mit dem Doktor, der sich daran erfreut, dass seine Versuche
+									Früchte tragen. Sein bester Freund versucht Woyzeck so gut er kann zu helfen.
+								</p>
+
+								<span class="episode-description">Szenen: 8, 1</span>
+							</div>
+						</div>
+
+						<div class="episode">
+							<span class="episode-index">3</span>
+
+							<img class="episode-thumb" src="Episodes/Episode3.jpeg" alt="Episode 3" />
+
+							<div class="episode-info">
+								<div class="episode-top">
+									<span class="episode-name">Wenn alles sich dreht</span>
+									<span class="episode-duration">27 Min.</span>
+								</div>
+
+								<p class="episode-description">
+									Während die Menge im Tanz versinkt, verliert Woyzeck den Halt - und bereitet sich
+									auf die Verteidigung seiner inneren Welt vor.
+								</p>
+
+								<span class="episode-description">Szenen: 12, 16</span>
+							</div>
+						</div>
+
+						<div class="episode">
+							<span class="episode-index">4</span>
+
+							<img class="episode-thumb" src="Episodes/Episode4V2.jpeg" alt="Episode 4" />
+
+							<div class="episode-info">
+								<div class="episode-top">
+									<span class="episode-name">Stimmen werden lauter</span>
+									<span class="episode-duration">32 Min.</span>
+								</div>
+
+								<p class="episode-description">
+									Woyzeck vollendet sein Lebenswerk, doch er fängt schnell an dieses zu bereuen. Woher
+									kamen seine Anwandlungen?
+								</p>
+
+								<span class="episode-description">Szenen: 13, 20, 24, 25</span>
+							</div>
+						</div>
+					</div>
+					<div class="modal-cast">
+						<div class="cast-header">
+							<h3>Besetzung</h3>
+						</div>
+
+						<div class="cast-list">
+							<div class="cast-member">
+								<img class="cast-image" src="Cast/Tom.jpg" />
+								<div class="cast-info">
+									<span class="cast-name">Tom Schilling</span>
+									<span class="cast-role">Woyzeck</span>
+								</div>
+							</div>
+
+							<div class="cast-member">
+								<img class="cast-image" src="Cast/Jytte.jpg" />
+								<div class="cast-info">
+									<span class="cast-name">Jytte-Merle Böhrnsen</span>
+									<span class="cast-role">Marie</span>
+								</div>
+							</div>
+
+							<div class="cast-member">
+								<img class="cast-image" src="Cast/Hans.jpg" />
+								<div class="cast-info">
+									<span class="cast-name">Hans Sigl</span>
+									<span class="cast-role">Doktor</span>
+								</div>
+							</div>
+
+							<div class="cast-member">
+								<img class="cast-image" src="Cast/Florian.jpg" />
+								<div class="cast-info">
+									<span class="cast-name">Florian David Fitz</span>
+									<span class="cast-role">Tambourmajor</span>
+								</div>
+							</div>
+
+							<div class="cast-member">
+								<img class="cast-image" src="Cast/FlorianStetter.jpg" />
+								<div class="cast-info">
+									<span class="cast-name">Florian Stetter</span>
+									<span class="cast-role">Andres</span>
+								</div>
+							</div>
+
+							<div class="cast-member">
+								<img class="cast-image" src="Cast/Uwe.jpg" />
+								<div class="cast-info">
+									<span class="cast-name">Uwe Ochsenknecht</span>
+									<span class="cast-role">Hauptmann</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="popular-row">
+			<h2 class="row-title">Beliebt bei Netflix</h2>
+
+			<div class="card-row">
+				<div class="card"></div>
+				<div class="card"></div>
+				<div class="card"></div>
+				<div class="card"></div>
+				<div class="card"></div>
+				<div class="card"></div>
+			</div>
+		</section>
+
+		<script>
+			const openBtn = document.getElementById("open-modal");
+			const modal = document.getElementById("info-modal");
+			const modalCard = modal.querySelector(".modal-card");
+
+			// Öffnen
+			openBtn.addEventListener("click", () => {
+				modal.classList.add("active");
+				document.body.style.overflow = "hidden"; // Scroll lock
+			});
+
+			// Schließen bei Klick auf Overlay
+			modal.addEventListener("click", () => {
+				closeModal();
+			});
+
+			// Klick in der Card soll NICHT schließen
+			modalCard.addEventListener("click", (e) => {
+				e.stopPropagation();
+			});
+
+			// ESC schließt Modal
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "Escape" && modal.classList.contains("active")) {
+					closeModal();
+				}
+			});
+
+			function closeModal() {
+				modal.classList.remove("active");
+				document.body.style.overflow = "";
+			}
+		</script>
+	</body>
+</html>
